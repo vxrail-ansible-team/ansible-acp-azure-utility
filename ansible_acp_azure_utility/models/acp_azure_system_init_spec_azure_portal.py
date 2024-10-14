@@ -30,42 +30,42 @@ class ACPAzureSystemInitSpecAzurePortal(object):
     swagger_types = {
         'subscription_id': 'str',
         'cloud': 'str',
-        'region': 'str',
         'service_principal': 'ACPAzureSystemInitSpecAzurePortalServicePrincipal',
         'resource_group': 'str',
-        'resource_name': 'str'
+        'key_vault_name': 'str',
+        'custom_location': 'str'
     }
 
     attribute_map = {
         'subscription_id': 'subscription_id',
         'cloud': 'cloud',
-        'region': 'region',
         'service_principal': 'service_principal',
         'resource_group': 'resource_group',
-        'resource_name': 'resource_name'
+        'key_vault_name': 'key_vault_name',
+        'custom_location': 'custom_location'
     }
 
-    def __init__(self, subscription_id=None, cloud=None, region=None, service_principal=None, resource_group=None, resource_name=None):  # noqa: E501
+    def __init__(self, subscription_id=None, cloud=None, service_principal=None, resource_group=None, key_vault_name=None, custom_location=None):  # noqa: E501
         """ACPAzureSystemInitSpecAzurePortal - a model defined in Swagger"""  # noqa: E501
         self._subscription_id = None
         self._cloud = None
-        self._region = None
         self._service_principal = None
         self._resource_group = None
-        self._resource_name = None
+        self._key_vault_name = None
+        self._custom_location = None
         self.discriminator = None
         if subscription_id is not None:
             self.subscription_id = subscription_id
         if cloud is not None:
             self.cloud = cloud
-        if region is not None:
-            self.region = region
         if service_principal is not None:
             self.service_principal = service_principal
         if resource_group is not None:
             self.resource_group = resource_group
-        if resource_name is not None:
-            self.resource_name = resource_name
+        if key_vault_name is not None:
+            self.key_vault_name = key_vault_name
+        if custom_location is not None:
+            self.custom_location = custom_location
 
     @property
     def subscription_id(self):
@@ -110,7 +110,7 @@ class ACPAzureSystemInitSpecAzurePortal(object):
         :param cloud: The cloud of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
         :type: str
         """
-        allowed_values = ["AZURE_CLOUD", "AZURE_CLOUD_CHINA", "AZURE_CLOUD_US_GOVERNMENT"]  # noqa: E501
+        allowed_values = ["AZURE_CLOUD"]  # noqa: E501
         if cloud not in allowed_values:
             raise ValueError(
                 "Invalid value for `cloud` ({0}), must be one of {1}"  # noqa: E501
@@ -118,29 +118,6 @@ class ACPAzureSystemInitSpecAzurePortal(object):
             )
 
         self._cloud = cloud
-
-    @property
-    def region(self):
-        """Gets the region of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
-
-        Specifies the region to create the resource in Azure portal. The supported regions refer to https://learn.microsoft.com/en-us/azure-stack/hci/concepts/system-requirements?tabs=azure-public#azure-requirements  # noqa: E501
-
-        :return: The region of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
-        :rtype: str
-        """
-        return self._region
-
-    @region.setter
-    def region(self, region):
-        """Sets the region of this ACPAzureSystemInitSpecAzurePortal.
-
-        Specifies the region to create the resource in Azure portal. The supported regions refer to https://learn.microsoft.com/en-us/azure-stack/hci/concepts/system-requirements?tabs=azure-public#azure-requirements  # noqa: E501
-
-        :param region: The region of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
-        :type: str
-        """
-
-        self._region = region
 
     @property
     def service_principal(self):
@@ -187,27 +164,50 @@ class ACPAzureSystemInitSpecAzurePortal(object):
         self._resource_group = resource_group
 
     @property
-    def resource_name(self):
-        """Gets the resource_name of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
+    def key_vault_name(self):
+        """Gets the key_vault_name of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
 
-        Specifies the Azure Resource name.  # noqa: E501
+        Specifies the Azure Key Vault name.  # noqa: E501
 
-        :return: The resource_name of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
+        :return: The key_vault_name of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
         :rtype: str
         """
-        return self._resource_name
+        return self._key_vault_name
 
-    @resource_name.setter
-    def resource_name(self, resource_name):
-        """Sets the resource_name of this ACPAzureSystemInitSpecAzurePortal.
+    @key_vault_name.setter
+    def key_vault_name(self, key_vault_name):
+        """Sets the key_vault_name of this ACPAzureSystemInitSpecAzurePortal.
 
-        Specifies the Azure Resource name.  # noqa: E501
+        Specifies the Azure Key Vault name.  # noqa: E501
 
-        :param resource_name: The resource_name of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
+        :param key_vault_name: The key_vault_name of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
         :type: str
         """
 
-        self._resource_name = resource_name
+        self._key_vault_name = key_vault_name
+
+    @property
+    def custom_location(self):
+        """Gets the custom_location of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
+
+        Specifies the custom location for the Azure Stack HCI cluster.  # noqa: E501
+
+        :return: The custom_location of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_location
+
+    @custom_location.setter
+    def custom_location(self, custom_location):
+        """Sets the custom_location of this ACPAzureSystemInitSpecAzurePortal.
+
+        Specifies the custom location for the Azure Stack HCI cluster.  # noqa: E501
+
+        :param custom_location: The custom_location of this ACPAzureSystemInitSpecAzurePortal.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_location = custom_location
 
     def to_dict(self):
         """Returns the model properties as a dict"""

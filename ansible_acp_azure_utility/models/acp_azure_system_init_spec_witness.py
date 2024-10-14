@@ -31,7 +31,6 @@ class ACPAzureSystemInitSpecWitness(object):
         'type': 'str',
         'account_name': 'str',
         'access_key': 'str',
-        'file_share_path': 'str',
         'azure_service_endpoint': 'str'
     }
 
@@ -39,16 +38,14 @@ class ACPAzureSystemInitSpecWitness(object):
         'type': 'type',
         'account_name': 'account_name',
         'access_key': 'access_key',
-        'file_share_path': 'file_share_path',
         'azure_service_endpoint': 'azure_service_endpoint'
     }
 
-    def __init__(self, type=None, account_name=None, access_key=None, file_share_path=None, azure_service_endpoint=None):  # noqa: E501
+    def __init__(self, type=None, account_name=None, access_key=None, azure_service_endpoint=None):  # noqa: E501
         """ACPAzureSystemInitSpecWitness - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._account_name = None
         self._access_key = None
-        self._file_share_path = None
         self._azure_service_endpoint = None
         self.discriminator = None
         if type is not None:
@@ -57,8 +54,6 @@ class ACPAzureSystemInitSpecWitness(object):
             self.account_name = account_name
         if access_key is not None:
             self.access_key = access_key
-        if file_share_path is not None:
-            self.file_share_path = file_share_path
         if azure_service_endpoint is not None:
             self.azure_service_endpoint = azure_service_endpoint
 
@@ -66,7 +61,7 @@ class ACPAzureSystemInitSpecWitness(object):
     def type(self):
         """Gets the type of this ACPAzureSystemInitSpecWitness.  # noqa: E501
 
-        Specify type of witness for the cluster. The supported values are Cloud and FileShare.  # noqa: E501
+        Specifies type of witness for the cluster. The only supported value is CLOUD.  # noqa: E501
 
         :return: The type of this ACPAzureSystemInitSpecWitness.  # noqa: E501
         :rtype: str
@@ -77,12 +72,12 @@ class ACPAzureSystemInitSpecWitness(object):
     def type(self, type):
         """Sets the type of this ACPAzureSystemInitSpecWitness.
 
-        Specify type of witness for the cluster. The supported values are Cloud and FileShare.  # noqa: E501
+        Specifies type of witness for the cluster. The only supported value is CLOUD.  # noqa: E501
 
         :param type: The type of this ACPAzureSystemInitSpecWitness.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CLOUD", "FILE_SHARE"]  # noqa: E501
+        allowed_values = ["CLOUD"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
@@ -95,7 +90,7 @@ class ACPAzureSystemInitSpecWitness(object):
     def account_name(self):
         """Gets the account_name of this ACPAzureSystemInitSpecWitness.  # noqa: E501
 
-        Specify the Azure Storage Account name used for cloud witness.  # noqa: E501
+        Specifies the Azure Storage Account name used for cloud witness.  # noqa: E501
 
         :return: The account_name of this ACPAzureSystemInitSpecWitness.  # noqa: E501
         :rtype: str
@@ -106,7 +101,7 @@ class ACPAzureSystemInitSpecWitness(object):
     def account_name(self, account_name):
         """Sets the account_name of this ACPAzureSystemInitSpecWitness.
 
-        Specify the Azure Storage Account name used for cloud witness.  # noqa: E501
+        Specifies the Azure Storage Account name used for cloud witness.  # noqa: E501
 
         :param account_name: The account_name of this ACPAzureSystemInitSpecWitness.  # noqa: E501
         :type: str
@@ -118,7 +113,7 @@ class ACPAzureSystemInitSpecWitness(object):
     def access_key(self):
         """Gets the access_key of this ACPAzureSystemInitSpecWitness.  # noqa: E501
 
-        Specify the access key of Azure storage account for cloud witness.  # noqa: E501
+        Specifies the access key of Azure storage account for cloud witness.  # noqa: E501
 
         :return: The access_key of this ACPAzureSystemInitSpecWitness.  # noqa: E501
         :rtype: str
@@ -129,36 +124,13 @@ class ACPAzureSystemInitSpecWitness(object):
     def access_key(self, access_key):
         """Sets the access_key of this ACPAzureSystemInitSpecWitness.
 
-        Specify the access key of Azure storage account for cloud witness.  # noqa: E501
+        Specifies the access key of Azure storage account for cloud witness.  # noqa: E501
 
         :param access_key: The access_key of this ACPAzureSystemInitSpecWitness.  # noqa: E501
         :type: str
         """
 
         self._access_key = access_key
-
-    @property
-    def file_share_path(self):
-        """Gets the file_share_path of this ACPAzureSystemInitSpecWitness.  # noqa: E501
-
-        Specify the fileshare path for the local witness for the cluster.  # noqa: E501
-
-        :return: The file_share_path of this ACPAzureSystemInitSpecWitness.  # noqa: E501
-        :rtype: str
-        """
-        return self._file_share_path
-
-    @file_share_path.setter
-    def file_share_path(self, file_share_path):
-        """Sets the file_share_path of this ACPAzureSystemInitSpecWitness.
-
-        Specify the fileshare path for the local witness for the cluster.  # noqa: E501
-
-        :param file_share_path: The file_share_path of this ACPAzureSystemInitSpecWitness.  # noqa: E501
-        :type: str
-        """
-
-        self._file_share_path = file_share_path
 
     @property
     def azure_service_endpoint(self):

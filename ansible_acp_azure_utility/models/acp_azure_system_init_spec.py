@@ -30,6 +30,7 @@ class ACPAzureSystemInitSpec(object):
     swagger_types = {
         'version': 'str',
         'ad_domain': 'ACPAzureSystemInitSpecAdDomain',
+        'kerberos': 'ACPAzureSystemInitSpecKerberos',
         'ldaps': 'ACPAzureSystemInitSpecLdaps',
         '_global': 'ACPAzureSystemInitSpecGlobal',
         'azure_portal': 'ACPAzureSystemInitSpecAzurePortal',
@@ -37,12 +38,14 @@ class ACPAzureSystemInitSpec(object):
         'witness': 'ACPAzureSystemInitSpecWitness',
         'wac': 'ACPAzureSystemInitSpecWac',
         'cloud_platform_manager': 'ACPAzureSystemInitSpecCloudPlatformManager',
-        'network': 'ACPAzureSystemInitSpecNetwork'
+        'network': 'ACPAzureSystemInitSpecNetwork',
+        'azure_proxy_server': 'ACPAzureSystemInitSpecAzureProxyServer'
     }
 
     attribute_map = {
         'version': 'version',
         'ad_domain': 'ad_domain',
+        'kerberos': 'kerberos',
         'ldaps': 'ldaps',
         '_global': 'global',
         'azure_portal': 'azure_portal',
@@ -50,13 +53,15 @@ class ACPAzureSystemInitSpec(object):
         'witness': 'witness',
         'wac': 'wac',
         'cloud_platform_manager': 'cloud_platform_manager',
-        'network': 'network'
+        'network': 'network',
+        'azure_proxy_server': 'azure_proxy_server'
     }
 
-    def __init__(self, version=None, ad_domain=None, ldaps=None, _global=None, azure_portal=None, hosts=None, witness=None, wac=None, cloud_platform_manager=None, network=None):  # noqa: E501
+    def __init__(self, version=None, ad_domain=None, kerberos=None, ldaps=None, _global=None, azure_portal=None, hosts=None, witness=None, wac=None, cloud_platform_manager=None, network=None, azure_proxy_server=None):  # noqa: E501
         """ACPAzureSystemInitSpec - a model defined in Swagger"""  # noqa: E501
         self._version = None
         self._ad_domain = None
+        self._kerberos = None
         self._ldaps = None
         self.__global = None
         self._azure_portal = None
@@ -65,9 +70,11 @@ class ACPAzureSystemInitSpec(object):
         self._wac = None
         self._cloud_platform_manager = None
         self._network = None
+        self._azure_proxy_server = None
         self.discriminator = None
         self.version = version
         self.ad_domain = ad_domain
+        self.kerberos = kerberos
         self.ldaps = ldaps
         self._global = _global
         self.azure_portal = azure_portal
@@ -78,12 +85,14 @@ class ACPAzureSystemInitSpec(object):
             self.wac = wac
         self.cloud_platform_manager = cloud_platform_manager
         self.network = network
+        if azure_proxy_server is not None:
+            self.azure_proxy_server = azure_proxy_server
 
     @property
     def version(self):
         """Gets the version of this ACPAzureSystemInitSpec.  # noqa: E501
 
-        The version of APEX Cloud Platform Manager.  # noqa: E501
+        Dell APEX Cloud Platform for Microsoft Azure version  # noqa: E501
 
         :return: The version of this ACPAzureSystemInitSpec.  # noqa: E501
         :rtype: str
@@ -94,7 +103,7 @@ class ACPAzureSystemInitSpec(object):
     def version(self, version):
         """Sets the version of this ACPAzureSystemInitSpec.
 
-        The version of APEX Cloud Platform Manager.  # noqa: E501
+        Dell APEX Cloud Platform for Microsoft Azure version  # noqa: E501
 
         :param version: The version of this ACPAzureSystemInitSpec.  # noqa: E501
         :type: str
@@ -126,6 +135,29 @@ class ACPAzureSystemInitSpec(object):
             raise ValueError("Invalid value for `ad_domain`, must not be `None`")  # noqa: E501
 
         self._ad_domain = ad_domain
+
+    @property
+    def kerberos(self):
+        """Gets the kerberos of this ACPAzureSystemInitSpec.  # noqa: E501
+
+
+        :return: The kerberos of this ACPAzureSystemInitSpec.  # noqa: E501
+        :rtype: ACPAzureSystemInitSpecKerberos
+        """
+        return self._kerberos
+
+    @kerberos.setter
+    def kerberos(self, kerberos):
+        """Sets the kerberos of this ACPAzureSystemInitSpec.
+
+
+        :param kerberos: The kerberos of this ACPAzureSystemInitSpec.  # noqa: E501
+        :type: ACPAzureSystemInitSpecKerberos
+        """
+        if kerberos is None:
+            raise ValueError("Invalid value for `kerberos`, must not be `None`")  # noqa: E501
+
+        self._kerberos = kerberos
 
     @property
     def ldaps(self):
@@ -308,6 +340,27 @@ class ACPAzureSystemInitSpec(object):
             raise ValueError("Invalid value for `network`, must not be `None`")  # noqa: E501
 
         self._network = network
+
+    @property
+    def azure_proxy_server(self):
+        """Gets the azure_proxy_server of this ACPAzureSystemInitSpec.  # noqa: E501
+
+
+        :return: The azure_proxy_server of this ACPAzureSystemInitSpec.  # noqa: E501
+        :rtype: ACPAzureSystemInitSpecAzureProxyServer
+        """
+        return self._azure_proxy_server
+
+    @azure_proxy_server.setter
+    def azure_proxy_server(self, azure_proxy_server):
+        """Sets the azure_proxy_server of this ACPAzureSystemInitSpec.
+
+
+        :param azure_proxy_server: The azure_proxy_server of this ACPAzureSystemInitSpec.  # noqa: E501
+        :type: ACPAzureSystemInitSpecAzureProxyServer
+        """
+
+        self._azure_proxy_server = azure_proxy_server
 
     def to_dict(self):
         """Returns the model properties as a dict"""

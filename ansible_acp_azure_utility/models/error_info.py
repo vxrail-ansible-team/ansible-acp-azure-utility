@@ -55,7 +55,6 @@ class ErrorInfo(object):
     def message_code(self):
         """Gets the message_code of this ErrorInfo.  # noqa: E501
 
-        The error message code   # noqa: E501
 
         :return: The message_code of this ErrorInfo.  # noqa: E501
         :rtype: str
@@ -66,7 +65,6 @@ class ErrorInfo(object):
     def message_code(self, message_code):
         """Sets the message_code of this ErrorInfo.
 
-        The error message code   # noqa: E501
 
         :param message_code: The message_code of this ErrorInfo.  # noqa: E501
         :type: str
@@ -78,7 +76,6 @@ class ErrorInfo(object):
     def error_code(self):
         """Gets the error_code of this ErrorInfo.  # noqa: E501
 
-        The error code  # noqa: E501
 
         :return: The error_code of this ErrorInfo.  # noqa: E501
         :rtype: int
@@ -89,7 +86,6 @@ class ErrorInfo(object):
     def error_code(self, error_code):
         """Sets the error_code of this ErrorInfo.
 
-        The error code  # noqa: E501
 
         :param error_code: The error_code of this ErrorInfo.  # noqa: E501
         :type: int
@@ -101,7 +97,6 @@ class ErrorInfo(object):
     def message(self):
         """Gets the message of this ErrorInfo.  # noqa: E501
 
-        The error message  # noqa: E501
 
         :return: The message of this ErrorInfo.  # noqa: E501
         :rtype: str
@@ -112,7 +107,6 @@ class ErrorInfo(object):
     def message(self, message):
         """Sets the message of this ErrorInfo.
 
-        The error message  # noqa: E501
 
         :param message: The message of this ErrorInfo.  # noqa: E501
         :type: str

@@ -28,57 +28,29 @@ class ACPAzureSystemInitSpecAdDomain(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'naming_prefix': 'str',
         'domain_name': 'str',
         'ou_path': 'str',
         'accounts': 'list[TypedAccountSpec]'
     }
 
     attribute_map = {
-        'naming_prefix': 'naming_prefix',
         'domain_name': 'domain_name',
         'ou_path': 'ou_path',
         'accounts': 'accounts'
     }
 
-    def __init__(self, naming_prefix=None, domain_name=None, ou_path=None, accounts=None):  # noqa: E501
+    def __init__(self, domain_name=None, ou_path=None, accounts=None):  # noqa: E501
         """ACPAzureSystemInitSpecAdDomain - a model defined in Swagger"""  # noqa: E501
-        self._naming_prefix = None
         self._domain_name = None
         self._ou_path = None
         self._accounts = None
         self.discriminator = None
-        if naming_prefix is not None:
-            self.naming_prefix = naming_prefix
         if domain_name is not None:
             self.domain_name = domain_name
         if ou_path is not None:
             self.ou_path = ou_path
         if accounts is not None:
             self.accounts = accounts
-
-    @property
-    def naming_prefix(self):
-        """Gets the naming_prefix of this ACPAzureSystemInitSpecAdDomain.  # noqa: E501
-
-        The prefix used for all Active Directory objects created for the APEX Cloud Platform for Microsoft Azure cluster deployment.  # noqa: E501
-
-        :return: The naming_prefix of this ACPAzureSystemInitSpecAdDomain.  # noqa: E501
-        :rtype: str
-        """
-        return self._naming_prefix
-
-    @naming_prefix.setter
-    def naming_prefix(self, naming_prefix):
-        """Sets the naming_prefix of this ACPAzureSystemInitSpecAdDomain.
-
-        The prefix used for all Active Directory objects created for the APEX Cloud Platform for Microsoft Azure cluster deployment.  # noqa: E501
-
-        :param naming_prefix: The naming_prefix of this ACPAzureSystemInitSpecAdDomain.  # noqa: E501
-        :type: str
-        """
-
-        self._naming_prefix = naming_prefix
 
     @property
     def domain_name(self):
