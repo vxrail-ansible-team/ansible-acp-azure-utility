@@ -33,7 +33,8 @@ class DiscoveredNodeInfo(object):
         'model': 'str',
         'hostname': 'str',
         'ipv6': 'str',
-        'bootstrap_os_version': 'str'
+        'bootstrap_os_version': 'str',
+        'azure_license_type': 'str'
     }
 
     attribute_map = {
@@ -42,10 +43,11 @@ class DiscoveredNodeInfo(object):
         'model': 'model',
         'hostname': 'hostname',
         'ipv6': 'ipv6',
-        'bootstrap_os_version': 'bootstrap_os_version'
+        'bootstrap_os_version': 'bootstrap_os_version',
+        'azure_license_type': 'azure_license_type'
     }
 
-    def __init__(self, serial_number=None, primary=None, model=None, hostname=None, ipv6=None, bootstrap_os_version=None):  # noqa: E501
+    def __init__(self, serial_number=None, primary=None, model=None, hostname=None, ipv6=None, bootstrap_os_version=None, azure_license_type=None):  # noqa: E501
         """DiscoveredNodeInfo - a model defined in Swagger"""  # noqa: E501
         self._serial_number = None
         self._primary = None
@@ -53,6 +55,7 @@ class DiscoveredNodeInfo(object):
         self._hostname = None
         self._ipv6 = None
         self._bootstrap_os_version = None
+        self._azure_license_type = None
         self.discriminator = None
         self.serial_number = serial_number
         self.primary = primary
@@ -60,6 +63,7 @@ class DiscoveredNodeInfo(object):
         self.hostname = hostname
         self.ipv6 = ipv6
         self.bootstrap_os_version = bootstrap_os_version
+        self.azure_license_type = azure_license_type
 
     @property
     def serial_number(self):
@@ -190,7 +194,7 @@ class DiscoveredNodeInfo(object):
     def bootstrap_os_version(self):
         """Gets the bootstrap_os_version of this DiscoveredNodeInfo.  # noqa: E501
 
-        The version of bootstrap OS installed on the host.  # noqa: E501
+        The bootstrap OS version installed on the host.  # noqa: E501
 
         :return: The bootstrap_os_version of this DiscoveredNodeInfo.  # noqa: E501
         :rtype: str
@@ -201,7 +205,7 @@ class DiscoveredNodeInfo(object):
     def bootstrap_os_version(self, bootstrap_os_version):
         """Sets the bootstrap_os_version of this DiscoveredNodeInfo.
 
-        The version of bootstrap OS installed on the host.  # noqa: E501
+        The bootstrap OS version installed on the host.  # noqa: E501
 
         :param bootstrap_os_version: The bootstrap_os_version of this DiscoveredNodeInfo.  # noqa: E501
         :type: str
@@ -210,6 +214,37 @@ class DiscoveredNodeInfo(object):
             raise ValueError("Invalid value for `bootstrap_os_version`, must not be `None`")  # noqa: E501
 
         self._bootstrap_os_version = bootstrap_os_version
+
+    @property
+    def azure_license_type(self):
+        """Gets the azure_license_type of this DiscoveredNodeInfo.  # noqa: E501
+
+        The Azure license type of the host.  # noqa: E501
+
+        :return: The azure_license_type of this DiscoveredNodeInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._azure_license_type
+
+    @azure_license_type.setter
+    def azure_license_type(self, azure_license_type):
+        """Sets the azure_license_type of this DiscoveredNodeInfo.
+
+        The Azure license type of the host.  # noqa: E501
+
+        :param azure_license_type: The azure_license_type of this DiscoveredNodeInfo.  # noqa: E501
+        :type: str
+        """
+        if azure_license_type is None:
+            raise ValueError("Invalid value for `azure_license_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["SUBSCRIPTION", "PERPETUAL"]  # noqa: E501
+        if azure_license_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `azure_license_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(azure_license_type, allowed_values)
+            )
+
+        self._azure_license_type = azure_license_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

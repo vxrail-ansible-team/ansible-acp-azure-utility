@@ -29,24 +29,29 @@ class ACPAzureSystemInitSpecNetworkHostNetwork(object):
     """
     swagger_types = {
         'intents': 'list[IntentSpec]',
+        'enable_storage_auto_ip': 'bool',
         'storage_networks': 'list[StorageNetworkSpec]',
         'storage_switch_topology': 'str'
     }
 
     attribute_map = {
         'intents': 'intents',
+        'enable_storage_auto_ip': 'enable_storage_auto_ip',
         'storage_networks': 'storage_networks',
         'storage_switch_topology': 'storage_switch_topology'
     }
 
-    def __init__(self, intents=None, storage_networks=None, storage_switch_topology=None):  # noqa: E501
+    def __init__(self, intents=None, enable_storage_auto_ip=None, storage_networks=None, storage_switch_topology=None):  # noqa: E501
         """ACPAzureSystemInitSpecNetworkHostNetwork - a model defined in Swagger"""  # noqa: E501
         self._intents = None
+        self._enable_storage_auto_ip = None
         self._storage_networks = None
         self._storage_switch_topology = None
         self.discriminator = None
         if intents is not None:
             self.intents = intents
+        if enable_storage_auto_ip is not None:
+            self.enable_storage_auto_ip = enable_storage_auto_ip
         if storage_networks is not None:
             self.storage_networks = storage_networks
         if storage_switch_topology is not None:
@@ -72,6 +77,29 @@ class ACPAzureSystemInitSpecNetworkHostNetwork(object):
         """
 
         self._intents = intents
+
+    @property
+    def enable_storage_auto_ip(self):
+        """Gets the enable_storage_auto_ip of this ACPAzureSystemInitSpecNetworkHostNetwork.  # noqa: E501
+
+        Indicates whether automatic IP assignment for storage adapter is enabled.  # noqa: E501
+
+        :return: The enable_storage_auto_ip of this ACPAzureSystemInitSpecNetworkHostNetwork.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_storage_auto_ip
+
+    @enable_storage_auto_ip.setter
+    def enable_storage_auto_ip(self, enable_storage_auto_ip):
+        """Sets the enable_storage_auto_ip of this ACPAzureSystemInitSpecNetworkHostNetwork.
+
+        Indicates whether automatic IP assignment for storage adapter is enabled.  # noqa: E501
+
+        :param enable_storage_auto_ip: The enable_storage_auto_ip of this ACPAzureSystemInitSpecNetworkHostNetwork.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_storage_auto_ip = enable_storage_auto_ip
 
     @property
     def storage_networks(self):

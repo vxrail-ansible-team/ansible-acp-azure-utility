@@ -37,7 +37,8 @@ class SystemInitStatusInfo(object):
         'detail': 'str',
         'error': 'str',
         'end_time': 'int',
-        'extension': 'SystemInitStatusInfoExtension'
+        'extension': 'SystemInitStatusInfoExtension',
+        'partial_pass': 'bool'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class SystemInitStatusInfo(object):
         'detail': 'detail',
         'error': 'error',
         'end_time': 'end_time',
-        'extension': 'extension'
+        'extension': 'extension',
+        'partial_pass': 'partial_pass'
     }
 
-    def __init__(self, id=None, state=None, step=None, owner=None, progress=None, start_time=None, detail=None, error=None, end_time=None, extension=None):  # noqa: E501
+    def __init__(self, id=None, state=None, step=None, owner=None, progress=None, start_time=None, detail=None, error=None, end_time=None, extension=None, partial_pass=None):  # noqa: E501
         """SystemInitStatusInfo - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._state = None
@@ -65,15 +67,18 @@ class SystemInitStatusInfo(object):
         self._error = None
         self._end_time = None
         self._extension = None
+        self._partial_pass = None
         self.discriminator = None
         self.id = id
         if state is not None:
             self.state = state
-        self.step = step
+        if step is not None:
+            self.step = step
         if owner is not None:
             self.owner = owner
         self.progress = progress
-        self.start_time = start_time
+        if start_time is not None:
+            self.start_time = start_time
         if detail is not None:
             self.detail = detail
         if error is not None:
@@ -82,6 +87,8 @@ class SystemInitStatusInfo(object):
             self.end_time = end_time
         if extension is not None:
             self.extension = extension
+        if partial_pass is not None:
+            self.partial_pass = partial_pass
 
     @property
     def id(self):
@@ -157,8 +164,6 @@ class SystemInitStatusInfo(object):
         :param step: The step of this SystemInitStatusInfo.  # noqa: E501
         :type: str
         """
-        if step is None:
-            raise ValueError("Invalid value for `step`, must not be `None`")  # noqa: E501
 
         self._step = step
 
@@ -230,8 +235,6 @@ class SystemInitStatusInfo(object):
         :param start_time: The start_time of this SystemInitStatusInfo.  # noqa: E501
         :type: int
         """
-        if start_time is None:
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
 
@@ -324,6 +327,29 @@ class SystemInitStatusInfo(object):
         """
 
         self._extension = extension
+
+    @property
+    def partial_pass(self):
+        """Gets the partial_pass of this SystemInitStatusInfo.  # noqa: E501
+
+        Indicates that not all hosts are successfully OS provisioned or registered in Azure portal.  # noqa: E501
+
+        :return: The partial_pass of this SystemInitStatusInfo.  # noqa: E501
+        :rtype: bool
+        """
+        return self._partial_pass
+
+    @partial_pass.setter
+    def partial_pass(self, partial_pass):
+        """Sets the partial_pass of this SystemInitStatusInfo.
+
+        Indicates that not all hosts are successfully OS provisioned or registered in Azure portal.  # noqa: E501
+
+        :param partial_pass: The partial_pass of this SystemInitStatusInfo.  # noqa: E501
+        :type: bool
+        """
+
+        self._partial_pass = partial_pass
 
     def to_dict(self):
         """Returns the model properties as a dict"""

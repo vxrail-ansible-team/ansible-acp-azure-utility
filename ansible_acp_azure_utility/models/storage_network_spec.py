@@ -28,24 +28,62 @@ class StorageNetworkSpec(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'name': 'str',
         'network_adapter_name': 'str',
-        'vlan_id': 'int'
+        'vlan_id': 'int',
+        'netmask': 'str',
+        'storage_adapter_ip_info': 'list[StorageNetworkSpecStorageAdapterIpInfo]'
     }
 
     attribute_map = {
+        'name': 'name',
         'network_adapter_name': 'network_adapter_name',
-        'vlan_id': 'vlan_id'
+        'vlan_id': 'vlan_id',
+        'netmask': 'netmask',
+        'storage_adapter_ip_info': 'storage_adapter_ip_info'
     }
 
-    def __init__(self, network_adapter_name=None, vlan_id=None):  # noqa: E501
+    def __init__(self, name=None, network_adapter_name=None, vlan_id=None, netmask=None, storage_adapter_ip_info=None):  # noqa: E501
         """StorageNetworkSpec - a model defined in Swagger"""  # noqa: E501
+        self._name = None
         self._network_adapter_name = None
         self._vlan_id = None
+        self._netmask = None
+        self._storage_adapter_ip_info = None
         self.discriminator = None
+        if name is not None:
+            self.name = name
         if network_adapter_name is not None:
             self.network_adapter_name = network_adapter_name
         if vlan_id is not None:
             self.vlan_id = vlan_id
+        if netmask is not None:
+            self.netmask = netmask
+        if storage_adapter_ip_info is not None:
+            self.storage_adapter_ip_info = storage_adapter_ip_info
+
+    @property
+    def name(self):
+        """Gets the name of this StorageNetworkSpec.  # noqa: E501
+
+        Name of the storage network.  # noqa: E501
+
+        :return: The name of this StorageNetworkSpec.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this StorageNetworkSpec.
+
+        Name of the storage network.  # noqa: E501
+
+        :param name: The name of this StorageNetworkSpec.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def network_adapter_name(self):
@@ -74,7 +112,7 @@ class StorageNetworkSpec(object):
     def vlan_id(self):
         """Gets the vlan_id of this StorageNetworkSpec.  # noqa: E501
 
-        The Vlan ID is specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Supported values are 1 to 4094.  # noqa: E501
+        Specifies the VLAN ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. The supported values are 1 to 4094.  # noqa: E501
 
         :return: The vlan_id of this StorageNetworkSpec.  # noqa: E501
         :rtype: int
@@ -85,13 +123,59 @@ class StorageNetworkSpec(object):
     def vlan_id(self, vlan_id):
         """Sets the vlan_id of this StorageNetworkSpec.
 
-        The Vlan ID is specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Supported values are 1 to 4094.  # noqa: E501
+        Specifies the VLAN ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. The supported values are 1 to 4094.  # noqa: E501
 
         :param vlan_id: The vlan_id of this StorageNetworkSpec.  # noqa: E501
         :type: int
         """
 
         self._vlan_id = vlan_id
+
+    @property
+    def netmask(self):
+        """Gets the netmask of this StorageNetworkSpec.  # noqa: E501
+
+        Specifies the netmask for the storage network.  # noqa: E501
+
+        :return: The netmask of this StorageNetworkSpec.  # noqa: E501
+        :rtype: str
+        """
+        return self._netmask
+
+    @netmask.setter
+    def netmask(self, netmask):
+        """Sets the netmask of this StorageNetworkSpec.
+
+        Specifies the netmask for the storage network.  # noqa: E501
+
+        :param netmask: The netmask of this StorageNetworkSpec.  # noqa: E501
+        :type: str
+        """
+
+        self._netmask = netmask
+
+    @property
+    def storage_adapter_ip_info(self):
+        """Gets the storage_adapter_ip_info of this StorageNetworkSpec.  # noqa: E501
+
+        IP address configuration of the storage network for each host.  # noqa: E501
+
+        :return: The storage_adapter_ip_info of this StorageNetworkSpec.  # noqa: E501
+        :rtype: list[StorageNetworkSpecStorageAdapterIpInfo]
+        """
+        return self._storage_adapter_ip_info
+
+    @storage_adapter_ip_info.setter
+    def storage_adapter_ip_info(self, storage_adapter_ip_info):
+        """Sets the storage_adapter_ip_info of this StorageNetworkSpec.
+
+        IP address configuration of the storage network for each host.  # noqa: E501
+
+        :param storage_adapter_ip_info: The storage_adapter_ip_info of this StorageNetworkSpec.  # noqa: E501
+        :type: list[StorageNetworkSpecStorageAdapterIpInfo]
+        """
+
+        self._storage_adapter_ip_info = storage_adapter_ip_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

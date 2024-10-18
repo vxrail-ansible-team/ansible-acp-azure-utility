@@ -36,4 +36,3 @@ Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 python3 setup.py install --user
 ```
 (or `sudo python3 setup.py install` to install the package for all users)
-
